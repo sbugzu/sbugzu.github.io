@@ -89,3 +89,22 @@
     }
   }
 }
+// custom
+// google search
+.search {
+ .gsc-input {
+   .gsc-input-box {
+     td,
+     th {
+      padding: 4px 6px 0;
+     }
+   }
+ }
+ input.gsc-input {
+   padding: 1px 6px;
+ }
+ .gsc-search-box-tools,
+ .gsc-search-button {
+   -webkit-box-sizing: content-box;
+ }
+}
