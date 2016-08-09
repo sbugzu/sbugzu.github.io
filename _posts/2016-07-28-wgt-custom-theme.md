@@ -1,9 +1,9 @@
 ---
 layout: post
-title:  "Wiktionary and Google Translate - Firefox addons Theme"
+title:  "Wiktionary and Google Translate - Firefox addons Theme [2016-08-09 updated]"
 #excerpt: "Theme for Wiktionary and Google Translate Plugin."
 categories: [soft]
-modified: 2016-07-28
+modified: 2016-08-09
 tags:
 - firefox
 - theme
@@ -11,6 +11,7 @@ tags:
 comments: true
 ---
 
+> 2016-08-09 更新: `-moz-appearance: -moz-win-glass !important;` 默认注释掉，影响 Mac 下的效果，在 Win 下可尝试开启。
 
 Firefox 在 Mac 下无法使用 `Command + Control + D` 调出系统自带字典，所以单独安装了 [Wiktionary and Google Translate](https://addons.mozilla.org/en-US/firefox/addon/google-dictionary-and-google-t) 扩展，但是原始界面无法直视
 
@@ -28,7 +29,8 @@ Firefox 在 Mac 下无法使用 `Command + Control + D` 调出系统自带字典
 
 ~~~ css
 .gDicClassPopupBox {
-  -moz-appearance: -moz-win-glass !important;
+  /* Windows Vista and later only */
+  /* -moz-appearance: -moz-win-glass !important; */
   border-style: none !important;
   background-color: rgba(200, 200, 200, 0.25) !important;
 }
@@ -136,7 +138,7 @@ Firefox 在 Mac 下无法使用 `Command + Control + D` 调出系统自带字典
 ## 已知问题
 
 * 最外层的 `gDicClassPopupBox` 总是要长一些
-* 由于 CSS 代码比较复杂，偶尔 Firefox 渲染会出问题
+* ~~由于 CSS 代码比较复杂，偶尔 Firefox 渲染会出问题~~
 
 ## 特别鸣谢
 

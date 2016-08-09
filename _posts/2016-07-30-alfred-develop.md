@@ -16,7 +16,7 @@ modified: 2016-07-30
 
 ![alfred banner](/upload/2016/07/alfred-banner.jpg)
 
-Alfred 这款 Mac 下的最强的效率神器（没有之一），它的功能就不过多在这里阐述了，各大报刊杂志均有介绍（如 [少数派](http://sspai.com/tag/alfred)），本篇列举一些能在开发过程中提高效率的扩展。
+[Alfred](https://www.alfredapp.com) 这款 Mac 下的最强的效率神器（没有之一），它的功能就不过多在这里阐述了，各大报刊杂志均有介绍（如 [少数派](http://sspai.com/tag/alfred)），本篇列举一些能在开发过程中提高效率的扩展。
 
 <!--more-->
 
