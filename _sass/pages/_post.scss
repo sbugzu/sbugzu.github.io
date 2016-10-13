@@ -246,3 +246,14 @@ a.read-more {
     border-color: #5f99cf;
   }
 }
+
+// custom
+.post-description {
+  .post-readmore {
+    margin-top: 28px;
+    padding-top: 8px;
+    //border-top: 1px dashed #666;
+    display: block;
+  }
+}
+
