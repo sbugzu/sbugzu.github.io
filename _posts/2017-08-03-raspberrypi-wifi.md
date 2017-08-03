@@ -22,12 +22,13 @@ tags:
 
 插上耳机那一刻，网上说底噪感人都是骗人的，尼玛完全就全是噪音。突然想起有只闲置的 06MX，所以有了下面的折腾。
 
-![raspberrypi with 06MX](/upload/2017/08/raspberrypi-with-06mx.jpg)
-
 树莓派 RaspberryPI 3，已安装 Raspbian Jessie Lite
 
 乐之邦（MUSLAND） 06 MX
 <!--more-->
+
+![raspberrypi with 06MX](/upload/2017/08/raspberrypi-with-06mx.jpg)
+
 
 ## 步骤
 ### 设置声卡
