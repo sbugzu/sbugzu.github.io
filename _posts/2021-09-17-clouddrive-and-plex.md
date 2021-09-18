@@ -26,7 +26,7 @@ tags:
 
 ## 介绍
 
-本文基于威联通 NAS，使用 Docker 运行 CloudDrive 挂载 115 网盘，使用 Plex 搜刮并作为服务器对外提供服务。
+本文基于威联通 NAS，使用 Docker 运行 CloudDrive 挂载 115 网盘，使用 Plex 刮削并作为服务器对外提供服务。
 
 同样适用于群晖、macOS、Ubuntu、Windows、OpenWRT 等支持 Docker 的系统，Windows 也可直接使用非 Docker 的独立 exe 版本。Plex 也可使用 Emby、Jellyfin 等代替（使用 Plex 是因为有购买终身版），如果不考虑外网也可直接使用 Kodi、Infuse 等本地播放器。
 
@@ -67,7 +67,7 @@ Windows 版本搬运 v1.1.41 下载地址「[32 位](https://www.aliyundrive.com
 
 Plex 官网（免费版有限制）：[https://plex.tv](https://plex.tv)
 
-官网终身版 119.99 刀，偶尔有活动 89.99 刀。选择 Plex 因为客户端非常非常丰富，能想到设备都有，界面也非常漂亮，搜刮效果也不错，定制性上稍弱。
+官网终身版 119.99 刀，偶尔有活动 89.99 刀。选择 Plex 因为客户端非常非常丰富，能想到设备都有，界面也非常漂亮，刮削效果也不错，定制性上稍弱。
 
 其它替换软件：
 
@@ -157,11 +157,11 @@ QNAP 中安装 Plex 同上 ContainerStation 的安装方式，安装完成后使
 
 点击右上角 `Settings -> MANAGE/Libraries -> Add Library`，选择 library type 为 Movies，修改 Name 为显示名称，Language 为中文。Add folders中，增加文件路径 `/share/CACHEDEV1_DATA/CloudDrive/CloudDrive/115`。
 
-如果有电视剧集资源，因为电影和电视剧需使用不同的搜刮器，所以在网盘中分别放在两个不同目录中（如：Movies, TVShows），在 libraries 中电视剧集选择 TV Shows 类型。
+如果有电视剧集资源，因为电影和电视剧需使用不同的刮削器，所以在网盘中分别放在两个不同目录中（如：Movies, TVShows），在 libraries 中电视剧集选择 TV Shows 类型。
 
 ![Plex library configuration](/upload/2021/plex-library.png)
 
-保存后会花一段时间进行搜刮，完成后手机上如下效果：
+保存后会花一段时间进行刮削，完成后手机上如下效果：
 
 ![Plex mobile screenshot](/upload/2021/plex-mobile.jpeg)
 
