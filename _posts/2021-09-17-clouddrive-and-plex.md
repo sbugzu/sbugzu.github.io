@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  115 + Clouddrive + Plex/Emby 搭建视频服务器
+title:  基于威联通 QNAP 115 + Clouddrive + Plex/Emby 搭建视频服务
 categories: [software, nas]
 comments: true
 modified: 2021-09-17
@@ -21,6 +21,9 @@ tags:
 - 115
 ---
 
+> Update:
+>
+> [2021-9-28] 解决文件过多(>30 左右)时，[Plex 刮削不全问题解决](#fixed-scrape)
 
 2020 年左右玩过一段时间，rclone + emby + Google Drive 搭建的多媒体服务器，后因 Google Drive 政策调整等原因慢慢放弃了。入手 QNAP 威联通后换成 PT + Kodi 的本地模式，稳定性各方面都不错，但有时候临时要看个电影还需要先下载不是太方便，最近刚好发现 CloudDrive 可以挂载 115 和阿里云盘等，测试了下效果还不错所以有了这篇文章。
 
@@ -177,5 +180,17 @@ QNAP 中安装 Plex 同上 ContainerStation 的安装方式，安装完成后使
 挂载其它网盘理论上也是可以的，但是具体限速未进行测试。
 
 ### 关于协议
-当 QNAP 使用 nfs 协议分享时，挂载目录为空无法访问，使用 SMB 协议后能正常访问，但使用 Kodi 直接播放时，会出现播放过程中自动跳出的情况，查询资料后应该是网速不稳定，同时针对 SMB 协议也不会进行缓存。解决方案 Kodi 19 之前版本可以使用增大缓存的方式调整（参考：[增加 Kodi 缓存](https://zhuanlan.zhihu.com/p/44945041)），但 Kodi 19 中该修改不生效，最后使用 FTP 协议进行分享后解决，播放时 Kodi 也能自动进行缓存。
+当 QNAP 使用 nfs 协议分享时，挂载目录为空无法访问，使用 SMB 协议后能正常访问，但使用 Kodi 直接播放时，会出现播放过程中自动跳出的情况，同时针对 SMB 协议也不会进行缓存。解决方案 Kodi 19 之前版本可以使用增大缓存的方式调整（参考：[增加 Kodi 缓存](https://zhuanlan.zhihu.com/p/44945041)），但 Kodi 19 中该修改不生效，最后使用 FTP 协议进行分享后解决，播放时 Kodi 也能自动进行缓存。
+
+<span id="fixed-scrape"></span>
+### Plex 刮削不全问题解决
+在 115 文件夹内文件过多时，会出现 Plex 刮削不全的问题，尝试后可通过挂载 FTP 的方式解决。原路径 `Plex -> CloudDrive -> 115`，新的方式后变为 `Plex -> HybridMount -> FTP -> CloudDrive -> 115`，虽然多了一层，但是走本地整体速度基本不受影响，经测试 4K 可正常播放。
+
+首先通过 FTP 协议把上文中挂载的 CloudDrive 目录共享出来，尽量减少影响直接使用 FTP 不使用 SFTP，同时在内网中使用打开匿名访问。在 Advanced 的 Tab 里选择根目录为 CloudDrive 挂载目录并确定。
+![Enable FTP](/upload/2021/enable-ftp.png)
+
+使用 HybridMount 进行挂载，打开 `HybridMount -> Mount Management -> Create Remote Mount -> Create Network Drive Mount`，具体配置如下：
+![HybridMount](/upload/2021/hybridmount.png)
+
+打开 Plex 在 Library 里面编辑把原来 CloudDrive 的挂载点删掉，通过浏览增加 FTP 挂载点一般在最下面类似 `xxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` 的名字，重新扫一下就 Ok 了，速度会慢一些但是不会丢文件，测试了 80 几个子文件夹均正常刮削。
 
