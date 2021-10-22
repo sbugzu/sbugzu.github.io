@@ -23,7 +23,8 @@ tags:
 
 > Update:
 >
-> [2021-9-28] 解决文件过多(>30 左右)时，[Plex 刮削不全问题解决](#fixed-scrape)
+> [2021-10-22] 增加 CloudDrive [更新方式](#update-method)
+> [2021-09-28] 解决文件过多(>30 左右)时，[Plex 刮削不全问题解决](#fixed-scrape)
 
 2020 年左右玩过一段时间，rclone + emby + Google Drive 搭建的多媒体服务器，后因 Google Drive 政策调整等原因慢慢放弃了。入手 QNAP 威联通后换成 PT + Kodi 的本地模式，稳定性各方面都不错，但有时候临时要看个电影还需要先下载不是太方便，最近刚好发现 CloudDrive 可以挂载 115 和阿里云盘等，测试了下效果还不错所以有了这篇文章。
 
@@ -130,7 +131,6 @@ services:
     privileged: true
     ports:
        - 9798:9798
-    restart: unless-stopped
 ```
 
 点击创建，等待几分钟时间容器启动完成。
@@ -169,6 +169,20 @@ QNAP 中安装 Plex 同上 ContainerStation 的安装方式，安装完成后使
 ![Plex mobile screenshot](/upload/2021/plex-mobile.jpeg)
 
 如果希望在家以外也能访问，可以使用端口映射和 DDNS 的方式，暂不展开。
+
+<span id="update-method"></span>
+### CloudDrive 更新
+通过 SSH 进入 QNAP，可以使用以下命令更新，默认地址选第一个路径:
+``` shell
+# default path
+cd /share/Container/container-station-data/application/clouddrive
+# custom container name
+cd /share/Container/container-station-data/application/%{container_name}
+
+docker-compose down
+docker-compose pull
+docker-compose up -d
+```
 
 ## 杂项
 
